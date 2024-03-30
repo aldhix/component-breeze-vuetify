@@ -1,20 +1,19 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-            </Link>
-        </div>
-
-        <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
-        >
+  <v-app>
+    <v-main class="d-flex align-center justify-center bg-grey-lighten-3">
+      <v-container>
+        <v-row>
+          <v-col md="4" offset-md="4">
+            <h1 class="text-center text-h4 font-weight-reguler mb-5">
+              {{ $appName }}<span class="font-weight-thin">Admin</span>
+            </h1>
             <slot />
-        </div>
-    </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
