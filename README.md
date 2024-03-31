@@ -7,3 +7,9 @@ Component Laravel Breeze dengan Vuetify
 - Register
 - Dashboard
 - Profile (Update Profile, Update Password & Delete Account)
+
+## Install Vuetify
+Install Vuetify [Existing Project](https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
+
+## Install Material Design Icons
+Install Icon Fonts [Material Design Icons](https://vuetifyjs.com/en/features/icon-fonts/#material-design-icons)
