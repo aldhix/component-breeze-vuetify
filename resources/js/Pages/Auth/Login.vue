@@ -31,7 +31,6 @@ const submit = () => {
   <GuestLayout>
     <Head title="Log in" />
     <v-card class="pa-5">
-
       <p class="text-center mb-5">Sign in to start your session</p>
 
       <p v-if="status" class="text-center mb-5">
@@ -39,13 +38,15 @@ const submit = () => {
       </p>
 
       <form @submit.prevent="submit">
-
         <v-text-field
           label="Email"
           v-model="form.email"
           :error-messages="form.errors.email"
           prepend-inner-icon="mdi-email"
           class="mb-3"
+          required
+          autofocus
+          autocomplete="username"
         />
 
         <v-text-field
@@ -57,6 +58,7 @@ const submit = () => {
           :append-inner-icon="hidden ? 'mdi-eye-off' : 'mdi-eye'"
           @click:append-inner="hidden = !hidden"
           class="mb-3"
+          autocomplete="current-password"
         />
 
         <div class="d-flex">
@@ -73,7 +75,6 @@ const submit = () => {
             >Log in</v-btn
           >
         </div>
-
       </form>
     </v-card>
   </GuestLayout>

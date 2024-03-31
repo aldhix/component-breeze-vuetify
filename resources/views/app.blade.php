@@ -20,7 +20,7 @@
   @inertiaHead
 </head>
 
-<body>
+<body class="bg-grey-lighten-3">
   @inertia
 </body>
 
