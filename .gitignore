@@ -8,5 +8,5 @@
 !/public/images/**
 
 !.gitignore
-
 !README.md
+!vite.config.js
