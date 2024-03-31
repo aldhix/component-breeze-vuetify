@@ -75,15 +75,15 @@ const drawer = ref(true);
     </v-app-bar>
 
     <v-main>
-      <v-container>
+      <v-container style="min-height: calc(100vh - 129px)">
         <h1 class="text-h5 mb-5" v-if="title">
           <v-icon :icon="icon" class="me-2 mb-2" v-if="icon" />{{ title }}
         </h1>
         <slot />
       </v-container>
+      <v-footer style="height: 65px;" border>
+        <strong class="text-grey">Copyright &copy; Aldhi Xar</strong>
+      </v-footer>
     </v-main>
-    <v-footer class="text-caption bg-grey" border app>
-      <strong>Copyright &copy; Aldhi Xar</strong>
-    </v-footer>
   </v-layout>
 </template>

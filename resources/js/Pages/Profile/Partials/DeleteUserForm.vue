@@ -59,6 +59,7 @@ const closeModal = () => {
       title="Are you sure you want to delete your account?"
     >
       <v-card-text>
+
         <v-text-field
           label="Password"
           v-model="form.password"
@@ -67,10 +68,11 @@ const closeModal = () => {
           type="password"
           @keyup.enter="deleteUser"
         />
+        
       </v-card-text>
 
       <template v-slot:actions>
-        
+
         <v-btn class="ms-auto" @click="closeModal">Cancel</v-btn>
 
         <v-btn
