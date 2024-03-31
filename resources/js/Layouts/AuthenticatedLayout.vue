@@ -17,6 +17,7 @@ const drawer = ref(true);
 
 <template>
   <v-layout class="rounded rounded-md">
+    <!-- Sidebar -->
     <v-navigation-drawer
       v-model="drawer"
       color="grey-darken-4"
@@ -45,6 +46,7 @@ const drawer = ref(true);
       </v-list>
     </v-navigation-drawer>
 
+    <!-- Navbar -->
     <v-app-bar elevation="1">
       <template v-slot:prepend>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -74,6 +76,7 @@ const drawer = ref(true);
       </v-toolbar-items>
     </v-app-bar>
 
+    <!-- Main -->
     <v-main>
       <v-container style="min-height: calc(100vh - 129px)">
         <h1 class="text-h5 mb-5" v-if="title">
@@ -81,7 +84,7 @@ const drawer = ref(true);
         </h1>
         <slot />
       </v-container>
-      <v-footer style="height: 65px;" border>
+      <v-footer style="height: 65px" border>
         <strong class="text-grey">Copyright &copy; Aldhi Xar</strong>
       </v-footer>
     </v-main>
