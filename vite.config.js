@@ -17,6 +17,7 @@ export default defineConfig({
             },
         }),
     ],
+    // Agar tidak ada peringatan "(!) Some chunks are larger than 500 KiB after minification"
     build: {
         rollupOptions: {
             output: {
