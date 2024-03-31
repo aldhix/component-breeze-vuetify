@@ -66,10 +66,7 @@ const submit = () => {
           :error-messages="form.errors.password_confirmation"
           :type="hidden ? 'password' : 'text'"
           prepend-inner-icon="mdi-key"
-          :append-inner-icon="hidden ? 'mdi-eye-off' : 'mdi-eye'"
-          @click:append-inner="hidden = !hidden"
           class="mb-2"
-          autocomplete="current-password"
         />
 
         <div class="d-flex">
