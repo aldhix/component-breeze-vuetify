@@ -43,7 +43,7 @@ const submit = () => {
           v-model="form.email"
           :error-messages="form.errors.email"
           prepend-inner-icon="mdi-email"
-          class="mb-3"
+          class="mb-2"
           required
           autofocus
           autocomplete="username"
@@ -57,17 +57,19 @@ const submit = () => {
           prepend-inner-icon="mdi-key"
           :append-inner-icon="hidden ? 'mdi-eye-off' : 'mdi-eye'"
           @click:append-inner="hidden = !hidden"
-          class="mb-3"
+          class="mb-2"
           autocomplete="current-password"
         />
 
-        <div class="d-flex">
-          <v-checkbox-btn
+        <v-checkbox-btn
             label="Remember"
             v-model="form.remember"
-            class="pe-2"
+            class="pe-2 mb-2"
           />
+
+        <div class="d-flex">
           <v-btn
+          class="ms-auto"
             type="submit"
             color="black"
             :loading="form.processing"

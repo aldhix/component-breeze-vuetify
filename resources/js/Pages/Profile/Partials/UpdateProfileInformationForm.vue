@@ -31,7 +31,7 @@ const form = useForm({
             label="Name"
             v-model="form.name"
             :error-messages="form.errors.name"
-            class="mb-3"
+            class="mb-2"
           />
 
           <v-text-field
@@ -39,7 +39,7 @@ const form = useForm({
             v-model="form.email"
             :error-messages="form.errors.email"
             type="email"
-            class="mb-3"
+            class="mb-2"
           />
 
           <v-btn color="black" type="submit" :loading="form.processing">

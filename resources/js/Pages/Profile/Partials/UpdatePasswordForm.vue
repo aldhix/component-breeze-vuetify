@@ -48,7 +48,7 @@ const updatePassword = () => {
             v-model="form.current_password"
             :error-messages="form.errors.current_password"
             type="password"
-            class="mb-3"
+            class="mb-2"
           />
 
           <v-text-field
@@ -56,7 +56,7 @@ const updatePassword = () => {
             v-model="form.password"
             :error-messages="form.errors.password"
             type="password"
-            class="mb-3"
+            class="mb-2"
           />
 
           <v-text-field
@@ -64,7 +64,7 @@ const updatePassword = () => {
             v-model="form.password_confirmation"
             :error-messages="form.errors.password_confirmation"
             type="password"
-            class="mb-3"
+            class="mb-2"
           />
 
           <v-btn color="black" type="submit" :loading="form.processing">
