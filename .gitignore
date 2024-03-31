@@ -1,5 +1,12 @@
 *
+
 !/resources/
 !/resources/**
+
+!/public/
+!/public/images/
+!/public/images/**
+
 !.gitignore
+
 !README.md
