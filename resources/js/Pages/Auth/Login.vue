@@ -1,6 +1,6 @@
 <script setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue";
-import { Head, Link, useForm } from "@inertiajs/vue3";
+import { Head, Link, useForm, router } from "@inertiajs/vue3";
 import { ref } from "vue";
 
 defineProps({
@@ -33,7 +33,7 @@ const submit = () => {
     <v-card class="pa-5">
       <p class="text-center mb-5">Sign in to start your session</p>
 
-      <p v-if="status" class="text-center mb-5">
+      <p v-if="status" class="text-center mb-5 text-green">
         {{ status }}
       </p>
 
@@ -62,14 +62,23 @@ const submit = () => {
         />
 
         <v-checkbox-btn
-            label="Remember"
-            v-model="form.remember"
-            class="pe-2 mb-2"
-          />
+          label="Remember"
+          v-model="form.remember"
+          class="pe-2 mb-2"
+        />
 
         <div class="d-flex">
           <v-btn
-          class="ms-auto"
+            class="ms-auto me-3"
+            color="blue"
+            variant="text"
+            :href="route('password.request')"
+            @click.prevent="router.get(route('password.request'))"
+          >
+            Forgot your password?
+          </v-btn>
+
+          <v-btn
             type="submit"
             color="black"
             :loading="form.processing"
