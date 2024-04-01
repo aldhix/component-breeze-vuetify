@@ -47,7 +47,7 @@ const verificationLinkSent = computed(
           <v-btn
             class="ms-auto"
             color="blue"
-            variant="text"
+            variant="tonal"
             :href="route('logout')"
             @click.prevent="router.post(route('logout'))"
             >Log out</v-btn

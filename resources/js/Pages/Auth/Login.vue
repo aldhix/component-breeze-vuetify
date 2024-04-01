@@ -61,22 +61,12 @@ const submit = () => {
           autocomplete="current-password"
         />
 
-        <v-checkbox-btn
-          label="Remember"
-          v-model="form.remember"
-          class="pe-2 mb-2"
-        />
-
-        <div class="d-flex">
-          <v-btn
-            class="ms-auto me-3"
-            color="blue"
-            variant="text"
-            :href="route('password.request')"
-            @click.prevent="router.get(route('password.request'))"
-          >
-            Forgot your password?
-          </v-btn>
+        <div class="d-flex mb-2">
+          <v-checkbox-btn
+            label="Remember"
+            v-model="form.remember"
+            class="pe-2"
+          />
 
           <v-btn
             type="submit"
@@ -85,6 +75,17 @@ const submit = () => {
             prepend-icon="mdi-login"
             >Log in</v-btn
           >
+        </div>
+        <div class="text-center">
+          <v-btn
+            class="ms-auto me-3 text-none"
+            color="blue"
+            variant="text"
+            :href="route('password.request')"
+            @click.prevent="router.get(route('password.request'))"
+          >
+            Forgot your password?
+          </v-btn>
         </div>
       </form>
     </v-card>
