@@ -32,7 +32,7 @@ const updatePassword = () => {
 <template>
   <v-card class="pa-4 mb-5">
     <v-row>
-      <v-col lg="4">
+      <v-col lg="6">
         <h6 class="text-h6 mb-2">Update Password</h6>
         <p class="text-grey-darken-3 mb-7">
           Ensure your account is using a long, random password to stay secure.

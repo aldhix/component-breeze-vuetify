@@ -34,7 +34,7 @@ const closeModal = () => {
 <template>
   <v-card class="pa-4">
     <v-row>
-      <v-col lg="4">
+      <v-col lg="6">
         <h6 class="text-h6 mb-2">Delete Account</h6>
         <p class="text-grey-darken-3 mb-7">
           Once your account is deleted, all of its resources and data will be

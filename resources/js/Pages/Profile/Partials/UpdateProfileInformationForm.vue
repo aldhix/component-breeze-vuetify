@@ -1,5 +1,6 @@
 <script setup>
 import { useForm, usePage, router } from "@inertiajs/vue3";
+import { ref } from "vue";
 
 defineProps({
   mustVerifyEmail: {
@@ -10,7 +11,20 @@ defineProps({
   },
 });
 
+const progressReSend = ref(false);
+
 const user = usePage().props.auth.user;
+
+const reSend = () => {
+  router.post(route("verification.send"), null, {
+    onStart: (visit) => {
+      progressReSend.value = true;
+    },
+    onFinish: (visit) => {
+      progressReSend.value = false;
+    },
+  });
+};
 
 const form = useForm({
   name: user.name,
@@ -21,7 +35,7 @@ const form = useForm({
 <template>
   <v-card class="pa-4 mb-5">
     <v-row>
-      <v-col lg="4">
+      <v-col lg="6">
         <h6 class="text-h6 mb-2">Profile Information</h6>
         <p class="text-grey-darken-3 mb-7">
           Update your account's profile information and email address.
@@ -55,7 +69,8 @@ const form = useForm({
                 variant="tonal"
                 class="text-none"
                 :href="route('verification.send')"
-                @click.prevent="router.post( route('verification.send') )"
+                @click.prevent="reSend"
+                :loading="progressReSend"
               >
                 Click here to re-send the verification email.
               </v-btn>
