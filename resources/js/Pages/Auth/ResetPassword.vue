@@ -78,7 +78,6 @@ const submit = () => {
             type="submit"
             color="black"
             :loading="form.processing"
-            prepend-icon="mdi-login"
             >Reset Password</v-btn
           >
         </div>

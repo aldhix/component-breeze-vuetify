@@ -83,7 +83,6 @@ const submit = () => {
             type="submit"
             color="black"
             :loading="form.processing"
-            prepend-icon="mdi-login"
             >Register</v-btn
           >
         </div>
