@@ -19,7 +19,10 @@ defineProps({
   <Head title="Profile" />
 
   <AuthenticatedLayout title="Profile" icon="mdi-account">
-    <UpdateProfileInformationForm />
+    <UpdateProfileInformationForm
+      :must-verify-email="mustVerifyEmail"
+      :status="status"
+    />
     <UpdatePasswordForm />
     <DeleteUserForm />
   </AuthenticatedLayout>

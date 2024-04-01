@@ -1,5 +1,5 @@
 <script setup>
-import { Link, useForm, usePage } from "@inertiajs/vue3";
+import { useForm, usePage, router } from "@inertiajs/vue3";
 
 defineProps({
   mustVerifyEmail: {
@@ -25,6 +25,7 @@ const form = useForm({
         <h6 class="text-h6 mb-2">Profile Information</h6>
         <p class="text-grey-darken-3 mb-7">
           Update your account's profile information and email address.
+          {{ mustVerifyEmail }} - {{ status }}
         </p>
         <form @submit.prevent="form.patch(route('profile.update'))">
           <v-text-field
@@ -42,23 +43,51 @@ const form = useForm({
             class="mb-2"
           />
 
-          <v-btn color="black" type="submit" :loading="form.processing">
-            Save
-          </v-btn>
-
-          <Transition
-            enter-active-class="transition ease-in-out"
-            enter-from-class="opacity-0"
-            leave-active-class="transition ease-in-out"
-            leave-to-class="opacity-0"
+          <div
+            class="mb-10"
+            v-if="mustVerifyEmail && user.email_verified_at === null"
           >
-            <span
-              v-if="form.recentlySuccessful"
-              class="text-grey-darken-2 ms-1"
+            <p class="text-grey-darken-3 mb-3">
+              Your email address is unverified.
+
+              <v-btn
+                color="blue"
+                variant="tonal"
+                class="text-none"
+                :href="route('verification.send')"
+                @click.prevent="router.post( route('verification.send') )"
+              >
+                Click here to re-send the verification email.
+              </v-btn>
+            </p>
+
+            <p
+              v-show="status === 'verification-link-sent'"
+              class="text-green mt-3"
             >
-              Saved.
-            </span>
-          </Transition>
+              A new verification link has been sent to your email address.
+            </p>
+          </div>
+
+          <div class="d-flex">
+            <v-btn color="black" type="submit" :loading="form.processing">
+              Save
+            </v-btn>
+
+            <Transition
+              enter-active-class="transition ease-in-out"
+              enter-from-class="opacity-0"
+              leave-active-class="transition ease-in-out"
+              leave-to-class="opacity-0"
+            >
+              <span
+                v-if="form.recentlySuccessful"
+                class="text-grey-darken-2 ms-1"
+              >
+                Saved.
+              </span>
+            </Transition>
+          </div>
         </form>
       </v-col>
     </v-row>
