@@ -8,6 +8,7 @@ Component Laravel Breeze dengan Vuetify
 - Dashboard
 - Profile (Update Profile, Update Password & Delete Account)
 - Reset Password
+- Password Confirm ( `->middleware('password.confirm')` )
 
 ## Install Vuetify
 Install Vuetify [Existing Project](https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
