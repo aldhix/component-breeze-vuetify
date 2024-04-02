@@ -75,7 +75,7 @@ const updatePassword = () => {
           >
             <span
               v-if="form.recentlySuccessful"
-              class="text-grey-darken-2 ms-1"
+              class="text-grey-darken-2 align-self-center ms-1"
             >
               Saved.
             </span>
