@@ -39,7 +39,6 @@ const form = useForm({
         <h6 class="text-h6 mb-2">Profile Information</h6>
         <p class="text-grey-darken-3 mb-7">
           Update your account's profile information and email address.
-          {{ mustVerifyEmail }} - {{ status }}
         </p>
         <form @submit.prevent="form.patch(route('profile.update'))">
           <v-text-field
