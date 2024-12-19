@@ -1,0 +1,9 @@
+.layout-login {
+    width: 100%;
+  }
+  
+  @media (min-width: 600px) {
+    .layout-login {
+      width: 500px!important;
+    }
+  }

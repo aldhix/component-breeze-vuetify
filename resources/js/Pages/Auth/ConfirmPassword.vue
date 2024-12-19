@@ -18,39 +18,32 @@ const submit = () => {
 
 <template>
   <GuestLayout>
+
     <Head title="Confirm Password" />
+    <v-container class="layout-login">
 
-    <v-card class="pa-5 text-center">
-      <p class="mb-5">
-        This is a secure area of the application. Please confirm your password before continuing.
-      </p>
+      <div class="text-center mb-5">
+        <img src="/images/logo.png" alt="Logo" width="100">
+      </div>
 
-      <form @submit.prevent="submit">
+      <v-card class="pa-5">
+        <p class="mb-5">
+          This is a secure area of the application. Please confirm your password before continuing.
+        </p>
 
-        <v-text-field
-          label="Password"
-          v-model="form.password"
-          :error-messages="form.errors.password"
-          :type="hidden ? 'password' : 'text'"
-          prepend-inner-icon="mdi-key"
-          :append-inner-icon="hidden ? 'mdi-eye-off' : 'mdi-eye'"
-          @click:append-inner="hidden = !hidden"
-          class="mb-2"
-          required
-          autofocus
-          autocomplete="current-password"
-        />
+        <form @submit.prevent="submit">
 
-        <div class="d-flex">
-          <v-btn
-            class="ms-auto"
-            type="submit"
-            color="black"
-            :loading="form.processing"
-            >Confirm</v-btn
-          >
-        </div>
-      </form>
-    </v-card>
+          <v-text-field label="Password" v-model="form.password" :error-messages="form.errors.password"
+            :type="hidden ? 'password' : 'text'" prepend-inner-icon="mdi-key"
+            :append-inner-icon="hidden ? 'mdi-eye-off' : 'mdi-eye'" @click:append-inner="hidden = !hidden" class="mb-2"
+            required autofocus autocomplete="current-password" />
+
+          <div class="d-flex">
+            <v-btn class="ms-auto" type="submit" color="black" :loading="form.processing">Confirm</v-btn>
+          </div>
+        </form>
+      </v-card>
+    </v-container>
+
   </GuestLayout>
 </template>

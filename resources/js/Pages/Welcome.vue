@@ -25,11 +25,9 @@ defineProps({
   <Head title="Welcome" />
   <GuestLayout>
     <v-card class="pa-5">
+      <h3 class="mb-5">The PHP Framework for Web Artisans</h3>
       <p class="mb-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dolorem
-        illo ex minus tempora inventore voluptatibus, laborum, cupiditate dolore
-        animi provident quae. Dolorem mollitia praesentium dicta distinctio
-        assumenda, molestias debitis?
+        Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.
       </p>
 
       <p class="mb-5" v-if="canLogin">
