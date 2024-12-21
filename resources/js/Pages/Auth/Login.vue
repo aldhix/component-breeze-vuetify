@@ -1,73 +1,94 @@
 <script setup>
-import GuestLayout from "@/Layouts/GuestLayout.vue";
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
-import { Head, useForm, router } from "@inertiajs/vue3";
-import { ref } from "vue";
+import Checkbox from '@/Components/Checkbox.vue';
+import GuestLayout from '@/Layouts/GuestLayout.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
-  canResetPassword: {
-    type: Boolean,
-  },
-  status: {
-    type: String,
-  },
+    canResetPassword: {
+        type: Boolean,
+    },
+    status: {
+        type: String,
+    },
 });
 
-const hidden = ref(true);
-
 const form = useForm({
-  email: "",
-  password: "",
-  remember: false,
+    email: '',
+    password: '',
+    remember: false,
 });
 
 const submit = () => {
-  form.post(route("login"), {
-    onFinish: () => form.reset("password"),
-  });
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
 };
 </script>
 
 <template>
-  <GuestLayout>
+    <GuestLayout>
+        <Head title="Log in" />
 
-    <Head title="Log in" />
-    <v-container class="layout-login">
-      
-      
-      <div class="text-center mb-5">
-        <img src="/images/logo.png" alt="Logo" width="100">
-      </div>
-      
-      <v-card class="pa-5">
-        
-        <p v-if="status" class="text-center mb-5 text-green">
-          {{ status }}
-        </p>
+        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+            {{ status }}
+        </div>
 
         <form @submit.prevent="submit">
-          <v-text-field label="Email" v-model="form.email" :error-messages="form.errors.email"
-            prepend-inner-icon="mdi-email" class="mb-2" required autofocus autocomplete="username" />
+            <div>
+                <InputLabel for="email" value="Email" />
 
-          <v-text-field label="Password" v-model="form.password" :error-messages="form.errors.password"
-            :type="hidden ? 'password' : 'text'" prepend-inner-icon="mdi-key"
-            :append-inner-icon="hidden ? 'mdi-eye-off' : 'mdi-eye'" @click:append-inner="hidden = !hidden" class="mb-2"
-            autocomplete="current-password" />
+                <TextInput
+                    id="email"
+                    type="email"
+                    class="mt-1 block w-full"
+                    v-model="form.email"
+                    required
+                    autofocus
+                    autocomplete="username"
+                />
 
-          <div class="d-flex mb-2">
-            <v-checkbox-btn label="Remember" v-model="form.remember" class="pe-2" />
+                <InputError class="mt-2" :message="form.errors.email" />
+            </div>
 
-            <v-btn type="submit" color="black" :loading="form.processing" prepend-icon="mdi-login">Log in</v-btn>
-          </div>
-          <div class="text-center">
-            <v-btn class="ms-auto me-3 text-none" color="blue" variant="text" :href="route('password.request')"
-              @click.prevent="router.get(route('password.request'))">
-              Forgot your password?
-            </v-btn>
-          </div>
+            <div class="mt-4">
+                <InputLabel for="password" value="Password" />
+
+                <TextInput
+                    id="password"
+                    type="password"
+                    class="mt-1 block w-full"
+                    v-model="form.password"
+                    required
+                    autocomplete="current-password"
+                />
+
+                <InputError class="mt-2" :message="form.errors.password" />
+            </div>
+
+            <div class="block mt-4">
+                <label class="flex items-center">
+                    <Checkbox name="remember" v-model:checked="form.remember" />
+                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <Link
+                    v-if="canResetPassword"
+                    :href="route('password.request')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Forgot your password?
+                </Link>
+
+                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Log in
+                </PrimaryButton>
+            </div>
         </form>
-      </v-card>
-    </v-container>
-
-  </GuestLayout>
+    </GuestLayout>
 </template>
