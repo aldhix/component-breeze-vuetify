@@ -1,4 +1,4 @@
-# Component Breeze Vuetify
+# Breeze Vuetify
 Component Laravel Breeze dengan Vuetify
 
 ## Feature
@@ -10,9 +10,13 @@ Component Laravel Breeze dengan Vuetify
 - Reset Password
 - Password Confirm ( `->middleware('password.confirm')` )
 - Email Verification ( `->middleware('verified')` )
+## Unsinstall Tailwind
+`npm uninstall tailwindcss`
 
-## Install Vuetify
+## Install Vuetify Existing Project
 Install Vuetify [Existing Project](https://vuetifyjs.com/en/getting-started/installation/#existing-projects)
+
+`npm i vuetify`
 
 ## Install Material Design Icons
 Install Icon Fonts [Material Design Icons](https://vuetifyjs.com/en/features/icon-fonts/#material-design-icons)
