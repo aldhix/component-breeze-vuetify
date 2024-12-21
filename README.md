@@ -10,7 +10,7 @@ Component Laravel Breeze dengan Vuetify
 - Reset Password
 - Password Confirm ( `->middleware('password.confirm')` )
 - Email Verification ( `->middleware('verified')` )
-## Unsinstall Tailwind
+## Uninstall Tailwind
 `npm uninstall tailwindcss`
 
 ## Install Vuetify Existing Project
